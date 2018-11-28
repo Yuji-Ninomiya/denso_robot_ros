@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<robot name="vs087" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- File Include -->
+  <xacro:include filename="$(find kinect_bringup)/urdf/sensor/kinect.urdf.xacro"/>
+  <xacro:include filename="$(find kinect_bringup)/urdf/sensor/kinect.gazebo.xacro"/>
+
+  <xacro:include filename="$(find denso_robot_descriptions)/vs087_description/vs087/vs087.urdf.xacro"/>
+
+  <!-- add Kinect V2 -->
+  <!-- kinect_center -->
+  <!-- Link -->
+  <xacro:kinect2_link_box_v0 name="kinect_center_link"/>
+  <link name="kinect_center_rgb_optical_frame"/>
+
+  <!-- Joint -->
+  <joint name="joint_kinect_center" type="fixed">
+    <origin xyz="1.265 0.04 0.515" rpy="0 0.3780 -3.123" />
+    <parent link="world"/>
+    <child link="kinect_center_link"/>
+  </joint>
+
+  <joint name="joint_rgb_kinect_center" type="fixed">
+    <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
+    <parent link="kinect_center_link"/>
+    <child link="kinect_center_rgb_optical_frame"/>
+  </joint>
+
+  <!-- Gazebo -->
+  <xacro:kinect_gazebo name="kinect_center"/>
+
+  
+  <!-- <!-\- add phoxi (but model is Kinect V2) -\-> -->
+  <!-- <!-\- phoxi_xl -\-> -->
+  <!-- <!-\- Link -\-> -->
+  <!-- <xacro:kinect2_link_box_v0 name="map"/> -->
+  <!-- <link name="phoxi_left_front_rgb_optical_frame"/> -->
+
+  <!-- <!-\- Joint -\-> -->
+  <!-- <joint name="joint_phoxi_left_front" type="fixed"> -->
+  <!--   <origin xyz="1.620 2.000 1.380" rpy="-0.0411 0.2778 -2.231" />> -->
+
+  <!--   <!-\- calibrated popsition -\-> -->
+  <!--   <!-\- <origin xyz="-0.686441 0.926263 0.761081" rpy="-3.12984 2.89395 2.18388" />> -\-> -->
+
+  <!--   <parent link="world"/> -->
+  <!--   <child link="map"/> -->
+  <!-- </joint> -->
+
+  <!-- <joint name="joint_rgb_phoxi_left_front" type="fixed"> -->
+  <!--   <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/> -->
+  <!--   <parent link="map"/> -->
+  <!--   <child link="phoxi_left_front_rgb_optical_frame"/> -->
+  <!-- </joint> -->
+
+  <!-- <!-\- Gazebo -\-> -->
+  <!-- <xacro:kinect_gazebo name="phoxi_left_front"/> -->
+
+  
+  <!-- add phoxi (but model is Kinect V2) -->
+  <!-- phoxi_xl -->
+  <!-- Link -->
+  <xacro:kinect2_link_box_v0 name="phoxi_left_link"/>
+  <!-- <link name="phoxi_left_front_rgb_optical_frame"/> -->
+  <link name="map"/>
+
+  <!-- Joint -->
+  <joint name="joint_phoxi_left_front" type="fixed">
+    <origin xyz="1.620 2.200 1.400" rpy="-0.0411 0.2778 -2.231" />>
+
+    <!-- calibrated popsition -->
+    <!-- <origin xyz="-0.686441 0.926263 0.761081" rpy="-3.12984 2.89395 2.18388" />> -->
+
+    <parent link="world"/>
+    <child link="phoxi_left_link"/>
+  </joint>
+
+  <joint name="joint_rgb_phoxi_left_front" type="fixed">
+    <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
+    <parent link="phoxi_left_link"/>
+    <!-- <child link="phoxi_left_front_rgb_optical_frame"/> -->
+    <child link="map"/>
+  </joint>
+
+  <!-- Gazebo -->
+  <xacro:kinect_gazebo name="phoxi_left_front"/>
+
+
+  
+</robot>
