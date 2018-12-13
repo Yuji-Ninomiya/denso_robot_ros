@@ -26,7 +26,7 @@
   </joint>
 
   <!-- Gazebo -->
-  <xacro:kinect_gazebo name="kinect_center"/>
+  <!-- <xacro:kinect_gazebo name="kinect_center"/> -->
 
   <!-- add Kinect V2 -->
   <!-- kinect_left -->
@@ -54,6 +54,6 @@
   </joint>
 
   <!-- Gazebo -->
-  <xacro:kinect_gazebo name="kinect_left"/>
+  <!-- <xacro:kinect_gazebo name="kinect_left"/> -->
 
 </robot>
