@@ -38,7 +38,8 @@
   <!-- PhoXi_xl_left_front -->
   <!-- Link -->
   <xacro:kinect2_link_box_v0 name="phoxi_left_link"/>
-  <link name="map"/> <!--  for playing bagfile 20181129 -->
+<!--   <link name="map"/>  for playing bagfile 2018.11.29 -->
+  <link name="phoxi_left_optical_frame"/> <!--  for playing bagfile 2018.12.17 -->
 
   <!-- Joint -->
   <joint name="joint_phoxi_left" type="fixed">
@@ -55,11 +56,12 @@
     <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
     <parent link="phoxi_left_link"/>
     <!-- <child link="kinect_left_rgb_optical_frame"/> -->
-    <child link="map"/>
+    <!-- <child link="map"/> -->
+    <child link="phoxi_left_optical_frame"/>
   </joint>
 
   <!-- Gazebo -->
-  <xacro:kinect_gazebo name="phoxi_left"/>
+<!--   <xacro:kinect_gazebo name="phoxi_left"/> -->
 
   <!-- add Kinect V2 -->
   <!-- kinect_right -->
