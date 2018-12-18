@@ -12,6 +12,7 @@
   <child link="hand_link"/>
   </joint>
 
+
   <!-- add Kinect V2 -->
   <!-- kinect_center -->
   <!-- Link -->
@@ -20,7 +21,6 @@
 
   <!-- Joint -->
   <joint name="joint_kinect_center" type="fixed">
-    <!-- <origin xyz="1.2297 0.1072 0.4985" rpy="-0.0047 0.5886 3.098" />> -->
     <origin xyz="0.8567 0.0762 0.9535" rpy="-0.0338 0.8795 3.0507" />
     <parent link="world"/>
     <child link="kinect_center_link"/>
@@ -32,58 +32,57 @@
     <child link="kinect_center_rgb_optical_frame"/>
   </joint>
 
-  <!-- Gazebo -->
+  <!-- <!-\- Gazebo -\-> -->
   <!-- <xacro:kinect_gazebo name="kinect_center"/> -->
 
   <!-- add Kinect V2 -->
-  <!-- kinect_left -->
+  <!-- kinect_right_front -->
   <!-- Link -->
-  <xacro:kinect2_link_box_v0 name="kinect_left_link"/>
-  <link name="kinect_left_rgb_optical_frame"/>
+  <xacro:kinect2_link_box_v0 name="kinect_right_front_link"/>
+  <link name="kinect_right_front_rgb_optical_frame"/>
 
   <!-- Joint -->
-  <joint name="joint_kinect_left" type="fixed">
-    <!-- <origin xyz="-0.7332 0.8586 0.6704" rpy="0.0106 0.2034 -0.9213" />> -->
-    <!-- <origin xyz="-0.7532 0.9586 0.7304" rpy="0.0106 0.2034 -0.9213" />> -->
-
+  <joint name="joint_kinect_right_front" type="fixed">
+    <!-- User calibration -->
+    <origin xyz="1.1275 -0.7452 0.7101" rpy="0.0553 0.2057 2.5196" />
     <!-- calibrated popsition -->
-    <origin xyz="-0.686441 0.926263 0.761081" rpy="-3.12984 2.89395 2.18388" />>
-
+    <!-- <origin xyz="-0.686441 -0.926263 0.761081" rpy="-0.0233 0.3223 0.481" />> -->
     <parent link="world"/>
-    <child link="kinect_left_link"/>
+    <child link="kinect_right_front_link"/>
   </joint>
 
-  <joint name="joint_rgb_kinect_left" type="fixed">
+  <joint name="joint_rgb_kinect_right_front" type="fixed">
     <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
-    <parent link="kinect_left_link"/>
-    <child link="kinect_left_rgb_optical_frame"/>
+    <parent link="kinect_right_front_link"/>
+    <child link="kinect_right_front_rgb_optical_frame"/>
   </joint>
 
-  <!-- Gazebo -->
-  <xacro:kinect_gazebo name="kinect_left"/>
+  <!-- <!-\- Gazebo -\-> -->
+  <!-- <xacro:kinect_gazebo name="kinect_right_front"/> -->
 
   <!-- add Kinect V2 -->
-  <!-- kinect_right -->
+  <!-- kinect_left_front -->
   <!-- Link -->
-  <xacro:kinect2_link_box_v0 name="kinect_right_link"/>
-  <link name="kinect_right_rgb_optical_frame"/>
+  <xacro:kinect2_link_box_v0 name="kinect_left_front_link"/>
+  <link name="kinect_left_front_rgb_optical_frame"/>
 
   <!-- Joint -->
-  <joint name="joint_kinect_right" type="fixed">
+  <joint name="joint_kinect_left_front" type="fixed">
+    <!-- User calibration -->
+   <origin xyz="1.073 0.6515 0.6704" rpy="-0.0182 0.1578 -2.5882" />
     <!-- calibrated popsition -->
-    <origin xyz="-0.686441 -0.926263 0.761081" rpy="-0.0233 0.3223 0.481" />>
 
     <parent link="world"/>
-    <child link="kinect_right_link"/>
+    <child link="kinect_left_front_link"/>
   </joint>
 
-  <joint name="joint_rgb_kinect_right" type="fixed">
+  <joint name="joint_rgb_kinect_left_front" type="fixed">
     <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
-    <parent link="kinect_right_link"/>
-    <child link="kinect_right_rgb_optical_frame"/>
+    <parent link="kinect_left_front_link"/>
+    <child link="kinect_left_front_rgb_optical_frame"/>
   </joint>
 
-  <!-- Gazebo -->
-  <xacro:kinect_gazebo name="kinect_right"/>
+  <!-- <!-\- Gazebo -\-> -->
+  <!-- <xacro:kinect_gazebo name="kinect_left_front"/> -->
 
 </robot>
