@@ -22,7 +22,7 @@
   <!-- Joint -->
   <joint name="joint_kinect_center" type="fixed">
     <!-- <origin xyz="0.8567 0.0762 0.9535" rpy="-0.0338 0.8795 3.0507" /> -->
-    <origin xyz="0.5500 0.05500 0.9000" rpy="-0.0338 0.8795 3.0507" />
+    <origin xyz="0.8567 0.0762 0.9535" rpy="-0.0338 0.8795 3.0507" />
     <parent link="world"/>
     <child link="kinect_center_link"/>
   </joint>
@@ -39,24 +39,24 @@
   <!-- add Kinect V2 -->
   <!-- kinect_right_front -->
   <!-- Link -->
-  <xacro:kinect2_link_box_v0 name="kinect_right_front_link"/>
+<!--   <xacro:kinect2_link_box_v0 name="kinect_right_front_link"/>
   <link name="kinect_right_front_rgb_optical_frame"/>
-
+ -->
   <!-- Joint -->
-  <joint name="joint_kinect_right_front" type="fixed">
+<!--   <joint name="joint_kinect_right_front" type="fixed"> -->
     <!-- User calibration -->
-    <origin xyz="1.1275 -0.7452 0.7101" rpy="0.0553 0.2057 2.5196" />
+<!--     <origin xyz="1.1275 -0.7452 0.7101" rpy="0.0553 0.2057 2.5196" /> -->
     <!-- calibrated popsition -->
     <!-- <origin xyz="-0.686441 -0.926263 0.761081" rpy="-0.0233 0.3223 0.481" />> -->
-    <parent link="world"/>
+<!--     <parent link="world"/>
     <child link="kinect_right_front_link"/>
-  </joint>
+  </joint> -->
 
-  <joint name="joint_rgb_kinect_right_front" type="fixed">
+<!--   <joint name="joint_rgb_kinect_right_front" type="fixed">
     <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
     <parent link="kinect_right_front_link"/>
     <child link="kinect_right_front_rgb_optical_frame"/>
-  </joint>
+  </joint> -->
 
   <!-- <!-\- Gazebo -\-> -->
   <!-- <xacro:kinect_gazebo name="kinect_right_front"/> -->
@@ -70,9 +70,9 @@
   <!-- Joint -->
   <joint name="joint_kinect_left_front" type="fixed">
     <!-- User calibration -->
-   <origin xyz="1.073 0.6515 0.6704" rpy="-0.0182 0.1578 -2.5882" />
+    <origin xyz="1.073 0.6515 0.6704" rpy="-0.0389 0.3127 -2.6041" />
     <!-- calibrated popsition -->
-
+    <!-- <origin xyz="0.958735 0.71587 0.756947" rpy="3.11561 2.75096 0.663577" /> -->
     <parent link="world"/>
     <child link="kinect_left_front_link"/>
   </joint>
