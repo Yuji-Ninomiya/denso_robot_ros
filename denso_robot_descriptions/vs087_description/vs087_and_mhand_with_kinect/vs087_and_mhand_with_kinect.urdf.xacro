@@ -16,14 +16,14 @@
   <!-- add Kinect V2 -->
   <!-- kinect_center -->
   <!-- Link -->
-  <xacro:kinect2_link_box_v0 name="kinect_center_link"/>
+<!--   <xacro:kinect2_link_box_v0 name="kinect_center_link"/>
   <link name="kinect_center_rgb_optical_frame"/>
-
+ -->
   <!-- Joint -->
-  <joint name="joint_kinect_center" type="fixed">
-    <!-- <origin xyz="0.8567 0.0762 0.9535" rpy="-0.0338 0.8795 3.0507" /> -->
-    <origin xyz="0.5500 0.05500 0.9000" rpy="-0.0338 0.8795 3.0507" />
-    <parent link="world"/>
+<!--   <joint name="joint_kinect_center" type="fixed">
+    <origin xyz="0.8567 0.0762 0.9535" rpy="-0.0338 0.8795 3.0507" />
+ --><!-- <origin xyz="0.5500 0.05500 0.9000" rpy="-0.0338 0.8795 3.0507" /> -->
+<!--     <parent link="world"/>
     <child link="kinect_center_link"/>
   </joint>
 
@@ -32,7 +32,7 @@
     <parent link="kinect_center_link"/>
     <child link="kinect_center_rgb_optical_frame"/>
   </joint>
-
+ -->
   <!-- <!-\- Gazebo -\-> -->
   <!-- <xacro:kinect_gazebo name="kinect_center"/> -->
 
@@ -64,16 +64,16 @@
   <!-- add Kinect V2 -->
   <!-- kinect_left_front -->
   <!-- Link -->
-  <xacro:kinect2_link_box_v0 name="kinect_left_front_link"/>
+<!--   <xacro:kinect2_link_box_v0 name="kinect_left_front_link"/>
   <link name="kinect_left_front_rgb_optical_frame"/>
-
+ -->
   <!-- Joint -->
-  <joint name="joint_kinect_left_front" type="fixed">
-    <!-- User calibration -->
-   <origin xyz="1.073 0.6515 0.6704" rpy="-0.0182 0.1578 -2.5882" />
-    <!-- calibrated popsition -->
+<!--   <joint name="joint_kinect_left_front" type="fixed">
+ -->    <!-- User calibration -->
+<!--    <origin xyz="1.073 0.6515 0.6704" rpy="-0.0182 0.1578 -2.5882" />
+ -->    <!-- calibrated popsition -->
 
-    <parent link="world"/>
+<!--     <parent link="world"/>
     <child link="kinect_left_front_link"/>
   </joint>
 
@@ -83,7 +83,7 @@
     <child link="kinect_left_front_rgb_optical_frame"/>
   </joint>
 
-  <!-- <!-\- Gazebo -\-> -->
+ -->  <!-- <!-\- Gazebo -\-> -->
   <!-- <xacro:kinect_gazebo name="kinect_left_front"/> -->
 
 </robot>
