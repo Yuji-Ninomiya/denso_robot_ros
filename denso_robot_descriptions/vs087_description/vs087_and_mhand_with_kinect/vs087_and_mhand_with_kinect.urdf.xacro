@@ -16,11 +16,11 @@
   <!-- add Kinect V2 -->
   <!-- kinect_center -->
   <!-- Link -->
-<!--   <xacro:kinect2_link_box_v0 name="kinect_center_link"/>
-  <link name="kinect_center_rgb_optical_frame"/> -->
+  <xacro:kinect2_link_box_v0 name="kinect_center_link"/>
+  <link name="kinect_center_rgb_optical_frame"/>
 
   <!-- Joint -->
-<!--   <joint name="joint_kinect_center" type="fixed">
+  <joint name="joint_kinect_center" type="fixed">
     <origin xyz="0.8567 0.0762 0.9535" rpy="-0.0338 0.8795 3.0507" />
   <origin xyz="0.5500 0.05500 0.9000" rpy="-0.0338 0.8795 3.0507" />
     <parent link="world"/>
@@ -31,7 +31,7 @@
     <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
     <parent link="kinect_center_link"/>
     <child link="kinect_center_rgb_optical_frame"/>
-  </joint> -->
+  </joint>
 
   <!-- <!-\- Gazebo -\-> -->
   <!-- <xacro:kinect_gazebo name="kinect_center"/> -->
@@ -64,16 +64,19 @@
   <!-- add Kinect V2 -->
   <!-- kinect_left_front -->
   <!-- Link -->
- <!--  <xacro:kinect2_link_box_v0 name="kinect_left_front_link"/>
-  <link name="kinect_left_front_rgb_optical_frame"/> -->
+  <xacro:kinect2_link_box_v0 name="kinect_left_front_link"/>
+  <link name="kinect_left_front_rgb_optical_frame"/>
 
   <!-- Joint -->
-<!--   <joint name="joint_kinect_left_front" type="fixed"> -->
+  <joint name="joint_kinect_left_front" type="fixed">
     <!-- User calibration -->
-<!--     <origin xyz="1.073 0.6515 0.6704" rpy="-0.0182 0.1578 -2.5882" /> -->
+    <!-- <origin xyz="1.073 0.6515 0.6704" rpy="-0.0182 0.1578 -2.5882" /> -->
+	<origin xyz="1.073 0.6515 0.6704" rpy="-0.0389 0.3127 -2.6041" />
     <!-- calibrated popsition -->
+    <!-- <origin xyz="0.958735 0.71587 0.756947" rpy="3.11561 2.75096 0.663577" /> -->
 
-<!--     <parent link="world"/>
+    <!-- calibrated popsition -->
+    <parent link="world"/>
     <child link="kinect_left_front_link"/>
   </joint>
 
@@ -81,9 +84,8 @@
     <origin rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
     <parent link="kinect_left_front_link"/>
     <child link="kinect_left_front_rgb_optical_frame"/>
-  </joint> -->
-
-  <!-- <!-\- Gazebo -\-> -->
-  <!-- <xacro:kinect_gazebo name="kinect_left_front"/> -->
+  </joint>
+  <!-- Gazebo -->
+  <xacro:kinect_gazebo name="kinect_left_front"/>
 
 </robot>
