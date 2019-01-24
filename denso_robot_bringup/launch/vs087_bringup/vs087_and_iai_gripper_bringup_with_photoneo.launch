@@ -56,7 +56,10 @@
 
   <!-- <node name="from_world_to_photoneo_test_static_tf" pkg="tf" type="static_transform_publisher" -->
   <!-- 	args="0.0549 2.8226 1.9632 -1.817 0.5848 0.0146 world photoneo_test 50" /> -->
-  <node name="from_world_to_photoneo_test_static_tf" pkg="tf" type="static_transform_publisher" args="1.6182 0.532 1.6235 -2.9004 1.01 0.18 world photoneo_test 50" />
+  
+  <!--  args="1.6182 0.532 1.6235 -2.9004 1.01 0.18 world photoneo_test 50" /> -->
+  <node name="from_world_to_photoneo_test_static_tf" pkg="tf" type="static_transform_publisher" args="1.7514 0.4537 1.5172 -2.9805 0.9478 0.1262 world photoneo_test 50" />
+  <!-- test position No.3 -->
   <node pkg="photoneo_localization" type="sensor_frame_broadcaster.py" name="photoneo_frame" output="screen"/>
 
 </launch>
