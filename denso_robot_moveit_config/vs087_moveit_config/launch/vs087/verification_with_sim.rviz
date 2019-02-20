@@ -13,14 +13,12 @@ Panels:
       Expanded:
         - /MotionPlanning1
         - /MotionPlanning1/Planning Request1
-        - /PointCloud21
-        - /PointCloud22
-        - /PointCloud23
         - /TF1
         - /TF1/Frames1
         - /RobotModel1
+        - /RobotModel1/Links1
       Splitter Ratio: 0.434328347
-    Tree Height: 253
+    Tree Height: 543
 Visualization Manager:
   Class: ""
   Displays:
@@ -44,7 +42,7 @@ Visualization Manager:
       Value: true
     - Acceleration_Scaling_Factor: 1
       Class: moveit_rviz_plugin/MotionPlanning
-      Enabled: true
+      Enabled: false
       Move Group Namespace: ""
       MoveIt_Allow_Approximate_IK: false
       MoveIt_Allow_External_Program: false
@@ -303,7 +301,7 @@ Visualization Manager:
         Robot Alpha: 0.5
         Show Robot Collision: false
         Show Robot Visual: true
-      Value: true
+      Value: false
       Velocity_Scaling_Factor: 1
     - Alpha: 1
       Autocompute Intensity Bounds: true
@@ -315,7 +313,7 @@ Visualization Manager:
       Channel Name: x
       Class: rviz/PointCloud2
       Color: 255; 170; 0
-      Color Transformer: FlatColor
+      Color Transformer: RGB8
       Decay Time: 0
       Enabled: true
       Invert Rainbow: false
@@ -330,7 +328,7 @@ Visualization Manager:
       Size (Pixels): 2
       Size (m): 0.00300000003
       Style: Flat Squares
-      Topic: /sim_kinect/shifted_frame_cloud
+      Topic: /fixed_frame_cloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -347,7 +345,67 @@ Visualization Manager:
       Color: 0; 255; 255
       Color Transformer: FlatColor
       Decay Time: 0
-      Enabled: false
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00499999989
+      Style: Flat Squares
+      Topic: /corrected_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 170; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 85; 0
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00499999989
+      Style: Flat Squares
+      Topic: /extracted_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 85; 255; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 4096
@@ -360,41 +418,11 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.00300000003
       Style: Flat Squares
-      Topic: /fixed_frame_cloud
+      Topic: /mesh_cloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: false
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 85; 0
-      Color Transformer: FlatColor
-      Decay Time: 0
-      Enabled: false
-      Invert Rainbow: false
-      Max Color: 255; 85; 0
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: PointCloud2
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.00999999978
-      Style: Flat Squares
-      Topic: /kinect_left_front/qhd/points
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: false
+      Value: true
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
@@ -417,7 +445,7 @@ Visualization Manager:
         fixed_frame:
           Value: false
         fixed_optical_frame:
-          Value: false
+          Value: true
         hand_link:
           Value: false
         kinect_center_link:
@@ -427,7 +455,7 @@ Visualization Manager:
         kinect_left_front_link:
           Value: false
         kinect_left_front_rgb_optical_frame:
-          Value: false
+          Value: true
         kinect_right_front_link:
           Value: false
         kinect_right_front_rgb_optical_frame:
@@ -556,7 +584,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         kinect_left_front_rgb_optical_frame:
           Alpha: 1
           Show Axes: false
@@ -631,28 +659,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.525398612
+      Pitch: 0.19039911
       Target Frame: world
       Value: Orbit (rviz)
-      Yaw: 0.825398803
+      Yaw: 0.320399642
     Saved:
-      - Class: rviz/FPS
-        Enable Stereo Rendering:
-          Stereo Eye Separation: 0.0599999987
-          Stereo Focal Distance: 1
-          Swap Stereo Eyes: false
-          Value: false
-        Invert Z Axis: false
-        Name: FPS
-        Near Clip Distance: 0.00999999978
-        Pitch: 0.525398672
-        Position:
-          X: 2.2322917
-          Y: 2.50626779
-          Z: 2.67802763
-        Target Frame: world
-        Value: FPS (rviz)
-        Yaw: 3.96699142
       - Class: rviz/Orbit
         Distance: 4.29375553
         Enable Stereo Rendering:
@@ -667,7 +678,7 @@ Visualization Manager:
         Focal Shape Fixed Size: true
         Focal Shape Size: 0.0500000007
         Invert Z Axis: false
-        Name: Orbit
+        Name: calib_left
         Near Clip Distance: 0.00999999978
         Pitch: 0.525398612
         Target Frame: world
@@ -687,12 +698,32 @@ Visualization Manager:
         Focal Shape Fixed Size: true
         Focal Shape Size: 0.0500000007
         Invert Z Axis: false
-        Name: Orbit
+        Name: checked
         Near Clip Distance: 0.00999999978
         Pitch: -0.104601197
         Target Frame: world
         Value: Orbit (rviz)
         Yaw: 0.675397515
+      - Class: rviz/Orbit
+        Distance: 2.80147934
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.0599999987
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.0402445905
+          Y: 0.15180181
+          Z: 0.369214326
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.0500000007
+        Invert Z Axis: false
+        Name: calib_right
+        Near Clip Distance: 0.00999999978
+        Pitch: 0.375398576
+        Target Frame: world
+        Value: Orbit (rviz)
+        Yaw: 5.47858095
 Window Geometry:
   Displays:
     collapsed: false
@@ -705,7 +736,7 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002ad000003ddfc0200000007fb0000000800480065006c00700000000342000000bb0000007300fffffffb0000000a005600690065007700730100000028000000ad000000ad00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000000db0000019b0000018300fffffffb000000100044006900730070006c006100790073010000027c00000189000000d700ffffff00000494000003dd00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002ad000003ddfc0200000007fb0000000800480065006c00700000000342000000bb0000007300fffffffb0000000a0056006900650077007301000000280000012c000000ad00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006700000000db0000019b0000018300fffffffb000000100044006900730070006c006100790073010000015a000002ab000000d700ffffff00000494000003dd00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1863
