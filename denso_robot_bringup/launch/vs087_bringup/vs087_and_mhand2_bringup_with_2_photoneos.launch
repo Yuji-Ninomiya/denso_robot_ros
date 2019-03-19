@@ -14,7 +14,7 @@
   <arg name="recv_format" default="290" />
 
   <!-- Choose robot options -->
-  <arg name="robot_options" default="vs087_and_iai_gripper" />
+  <arg name="robot_options" default="vs087_and_mhand2" />
 
   <!-- Define the motion planner we want to use (ompl or stomp) -->
   <arg name="planner" default="ompl" />
@@ -34,13 +34,12 @@
   </group>
 
   <group unless="$(arg sim)">
-    <!-- IAI  driver -->
-    <!-- <node pkg="iai_gripper_driver" type="listener.py" name="iai_driver" output="screen" /> -->
-    <include file="$(find iai_gripper_driver)/launch/listener.launch" />
-    <!-- <node pkg="iai_gripper_control"  type="mhand_joint_state_republisher"  name="mhand_joint_state_republisher" output="screen"> -->
-    <!--   <param name="joint_state_republish_topic_name" value="/vs087_and_mhand/joint_states" /> -->
-    <!--   <param name="joint_state_subscribe_topic_name" value="/vs087/joint_states" /> -->
-    <!-- </node> -->
+    <!-- M-Hand driver -->
+    <include file="$(find mhand_driver)/launch/listener.launch" />
+    <node pkg="mhand_control"  type="mhand_joint_state_republisher"  name="mhand_joint_state_republisher" output="screen">
+      <param name="joint_state_republish_topic_name" value="/vs087_and_mhand2/joint_states" />
+      <param name="joint_state_subscribe_topic_name" value="/vs087/joint_states" />
+    </node>
     <!-- denso_robot_bringup.launch -->
     <include file="$(find denso_robot_bringup)/launch/denso_robot_bringup.launch">
       <arg name="robot_name" value="vs087"/>
@@ -54,12 +53,16 @@
     </include>
   </group>
 
-  <!-- <node name="from_world_to_photoneo_test_static_tf" pkg="tf" type="static_transform_publisher" -->
-  <!-- 	args="0.0549 2.8226 1.9632 -1.817 0.5848 0.0146 world photoneo_test 50" /> -->
-  
-  <!--  args="1.6182 0.532 1.6235 -2.9004 1.01 0.18 world photoneo_test 50" /> -->
-  <node name="from_world_to_photoneo_test_static_tf" pkg="tf" type="static_transform_publisher" args="1.7514 0.4537 1.5172 -2.9805 0.9478 0.1262 world photoneo_test 50" />
-  <!-- test position No.3 -->
-  <node pkg="photoneo_localization" type="sensor_frame_broadcaster.py" name="photoneo_frame" output="screen"/>
+  <!-- photoneo_sensor: "photoneo_center" -->
+  <node name="from_world_to_phoxi_test_static_tf" pkg="tf" type="static_transform_publisher" args="1.1547 0.2047 0.8946 -2.8982 0.9154 0.196 world photoneo_center 50" />
+  <node pkg="photoneo_localization" type="sensor_frame_broadcaster.py" name="photoneo_center_frame" output="screen">
+    <param name="sensor_name" type="str" value="photoneo_center" />
+  </node>
+
+  <!-- photoneo_sensor: "photoneo_left" -->
+  <node name="from_world_to_photoneo_left_static_tf" pkg="tf" type="static_transform_publisher" args="0.8447 1.0599 0.9848 -2.162 0.1785 0.0832 world photoneo_left 50" />
+  <node pkg="photoneo_localization" type="sensor_frame_broadcaster.py" name="photoneo_left_frame" output="screen">
+    <param name="sensor_name" type="str" value="photoneo_left" />
+  </node>
 
 </launch>
